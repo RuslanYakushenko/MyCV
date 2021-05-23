@@ -73,7 +73,7 @@
                     <a class="contacts_section_link" href="mailto:ruslan.yakushenko.1998@gmail.com">ruslan.yakushenko.1998@gmail.com</a>
                 </div>
             </div>
-        </div>
+         </div>
 
 
 
