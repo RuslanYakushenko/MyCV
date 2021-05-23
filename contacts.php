@@ -1,5 +1,5 @@
 <?php
-    echo "About my!";
+    echo "About my";
 ?>
 <!DOCTYPE html>
 <html lang="en">
