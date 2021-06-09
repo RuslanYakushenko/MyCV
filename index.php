@@ -1,5 +1,5 @@
 <?php
-    $myName = "Ruslan Yakushenko";
+    $myName = "Руслан Якушенко";
     $date = date("M Y");
     $myProjectsHeading = "Projects";
 ?>
@@ -22,13 +22,12 @@
         <!-- sidebar section -->
         <aside class="sidebar_section"> 
             <img src="http://localhost/cv/img/2021-04-19.jpeg" width="370" height= "250" alt="My photo">
-            <a href="./contacts.php">contacts.php</a>
             <!-- contacts section -->
 
             <div class="contacts_section">
-                <h3 class="sidebar_tittle">Contacts</h3>
+                <h3 class="sidebar_tittle">Контакты</h3>
                 <div>
-                    <span class="contacts_section_type">Number:</span>
+                    <span class="contacts_section_type">Телефон:</span>
                     <a class="contacts_section_link" href="tel:+380507101116">+38(050)710-11-16</a>
                 </div>
                 <div>
@@ -45,7 +44,6 @@
                     <li class="skills_item"> <span class="skills_item_text" >HTML5</span></li>
                     <li class="skills_item"> <span class="skills_item_text" >CSS3</span></li>
                     <li class="skills_item"> <span class="skills_item_text" >PHP</span></li>
-                    <li class="skills_item"> <span class="skills_item_text" >JavaScript</span></li>
                     <li class="skills_item"> <span class="skills_item_text" >Wordpress</span></li>
                 </ul>
             </div>
@@ -58,6 +56,7 @@
                     <li class="skills_item"> <span class="skills_item_text" >Agile</span></li>
                     <li class="skills_item"> <span class="skills_item_text" >GTD</span></li>
                     <li class="skills_item"> <span class="skills_item_text" >Teamwork</span></li>
+                    <li class="skills_item"> <span class="skills_item_text" >Management</span></li>
                 </ul>
             </div>
         </aside>
