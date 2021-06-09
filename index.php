@@ -2,6 +2,39 @@
     $myName = "Руслан Якушенко";
     $date = date("M Y");
     $myProjectsHeading = "Projects";
+
+    $softSkills = ["Scrum", "Agile", "GTD", "Teanwork", "Management"];
+
+    $teckSkills = ['HTML5', "CSS3"];
+    $teckSkills[] = "PHP";
+    $teckSkills[] = "Wordpress";
+    $teckSkills[] = "Vue";
+
+    $projects = [];
+
+    $projects[] = [
+        'name' =>  'Facebook',
+        'url' =>  'facebook.com',
+        'tools' => ['CSS', "HTML", 'PHP'],
+    ];
+
+    $projects[] = [
+        'name' =>  'Google',
+        'url' =>  'goolge.com',
+        'tools' => ['CSS', "HTML", 'PHP'],
+    ];
+
+    $projects[] = [
+        'name' =>  'Glovo',
+        'url' =>  'glovo.com',
+        'tools' => ['JavaScript', "CSS 3", 'PHP'],
+    ];
+    
+    // echo  '<pre>';
+    // var_dump($projects);
+    // echo '</pre>';
+    // die;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,10 +74,13 @@
             
                 <h3 class="sidebar_tittle">Tech Skills</h3>
                 <ul class="skills_list">
-                    <li class="skills_item"> <span class="skills_item_text" >HTML5</span></li>
+                    <?php  foreach ($teckSkills as $index => $skill) {?>
+                        <li class="skills_item"> <span class="skills_item_text"><b><?php echo $index + 1 . ".";?></b><?php echo $skill;?></span></li>
+                    <?php } ?>
+                    <!-- <li class="skills_item"> <span class="skills_item_text" >HTML5</span></li>
                     <li class="skills_item"> <span class="skills_item_text" >CSS3</span></li>
                     <li class="skills_item"> <span class="skills_item_text" >PHP</span></li>
-                    <li class="skills_item"> <span class="skills_item_text" >Wordpress</span></li>
+                    <li class="skills_item"> <span class="skills_item_text" >Wordpress</span></li> -->
                 </ul>
             </div>
 
@@ -52,11 +88,14 @@
             <div class="soft_skills_section">
                 <h3 class="sidebar_tittle">Soft Skills</h3>
                 <ul class="skills_list">
-                    <li class="skills_item"> <span class="skills_item_text" >Scrum</span></li>
-                    <li class="skills_item"> <span class="skills_item_text" >Agile</span></li>
-                    <li class="skills_item"> <span class="skills_item_text" >GTD</span></li>
-                    <li class="skills_item"> <span class="skills_item_text" >Teamwork</span></li>
-                    <li class="skills_item"> <span class="skills_item_text" >Management</span></li>
+                    <?php foreach ($softSkills as $skill) {?>
+                        <li class="skills_item"> <span class="skills_item_text" ><?php echo $skill;?></span></li>
+                    <?php }?>
+                    <?php 
+                        // foreach($softSkills as  $skill) {
+                        //     echo "<li class=\"skills_item\"> <span class=\"skills_item_text\" >"  . $skill . "</span></li>";
+                        // }
+                    ?>        
                 </ul>
             </div>
         </aside>
@@ -86,21 +125,16 @@
             <div class="projects_section">
                 <h3 class="my_projects_heading"><?php echo $myProjectsHeading ?> </h3>
                 <ol class="my_projects_list">
+                   <?php for ($i = 0; $i < 3; $i++) {?>
                     <li class="my_progects_item"> 
                         <span class="my_projects_text"> 
-                            <a href=http://distributor.dp.ua class="my_projects_link">http://distributor.dp.ua</a>
-                            ........
-                            <span class="my_progects_brackets">[</span> HTML5, CSS3 <span class="my_progects_brackets">]</span>
+                            <a href="<?php  echo $projects[$i]['url']?>" class="my_projects_link"><?php  echo $projects[$i]['name']?></a>
+                            <span class="my_progects_brackets">[</span><?php  echo implode('; ', $projects[$i]['tools']);?> <span class="my_progects_brackets">]</span>
                         </span>
-                    </li>
+                    </li>   
+                   <?php }?>             
                 </ol>
-            
             </div>
-
-
-
-
-
             <!-- My work experience section -->
             <div class="work_experience_section">
                 <h3 class="title_section">Work Experience</h3>
