@@ -98,6 +98,13 @@
                     ?>        
                 </ul>
             </div>
+
+            <!-- Hobbies page -->
+            <div>
+            <a href="hobbies_page.php">hobbies_page.php</a>
+            </div>
+
+            
         </aside>
         <!-- Main content section -->
         <div class="main_content_section">
