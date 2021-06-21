@@ -3,7 +3,7 @@
     $films = [];
 
     $films[] = [
-        'image' => '<img src="http://localhost/cv/Captain_America_The_Winter_Soldie" alt="Первый Мститель">',
+        'image' => '<img src="./img/Captain_America_The_Winter_Soldier.jpg" alt="Первый Мститель">',
         'name' => 'Первый мститель',
         'genre' => ['Боевик', 'Приключения', 'Фантастика'],
         'rating' => '9.3',
@@ -12,7 +12,7 @@
     ];
 
     $films[] = [
-        'image' => '<img src="http://localhost/cv/IronMan" alt="Железный человек">',
+        'image' => '<img src="./img/IronMan2.jpg" alt="Железный человек">',
         'name' => 'Железный человек',
         'genre' => ['Боевик', 'Приключения', 'Фантастика'],
         'rating' => '7.9',
@@ -103,6 +103,50 @@
                 <?php } ?>
             </ol>
         </div>
+                    <pre>
+        <?php
+            // $loopIsWorhing = true;
+            // while ($loopIsWorhing) {
+            //     echo "Loop is working" . PHP_EOL;
+
+            //     $number = rand(1, 20);
+            //     if ($number == 10) {
+            //         $loopIsWorhing = false;
+            //     }                    
+            // }
+
+            // $i = 5;
+            // do {
+            //     echo "DO WHILE : " . $i . PHP_EOL;
+            //     $i++;
+            // } while ($i < 2);
+
+            $i = 1;
+            
+            while ($i < 10) {
+                // echo "WHILE " . $i . PHP_EOL;
+
+                if ($i % 2 == 0) {
+                    echo $i . ' - EVEN' . PHP_EOL;
+                } else {
+                    echo $i . ' - ODD' . PHP_EOL; 
+                }
+
+                $i++;
+            }
+
+
+
+            
+
+
+
+            // for ($i=1; $i < 5; $i++) {
+                
+            // }
+
+        ?>            
+</pre>
     </div>
 
     

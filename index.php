@@ -16,18 +16,21 @@
         'name' =>  'Facebook',
         'url' =>  'facebook.com',
         'tools' => ['CSS', "HTML", 'PHP'],
+        'cssStyle' => 1
     ];
 
     $projects[] = [
         'name' =>  'Google',
         'url' =>  'goolge.com',
         'tools' => ['CSS', "HTML", 'PHP'],
+        'cssStyle' => 3
     ];
 
     $projects[] = [
         'name' =>  'Glovo',
         'url' =>  'glovo.com',
         'tools' => ['JavaScript', "CSS 3", 'PHP'],
+        'cssStyle' => 3
     ];
     
     // echo  '<pre>';
@@ -88,8 +91,14 @@
             <div class="soft_skills_section">
                 <h3 class="sidebar_tittle">Soft Skills</h3>
                 <ul class="skills_list">
-                    <?php foreach ($softSkills as $skill) {?>
-                        <li class="skills_item"> <span class="skills_item_text" ><?php echo $skill;?></span></li>
+                    <?php foreach ($softSkills as $index => $skill) {
+                        if ($index % 2 == 0) {
+                            $class = "red";
+                        } else {
+                            $class = "green";
+                        }
+                        ?>
+                        <li class="skills_item <?php echo $class;?>"> <span class="skills_item_text" ><?php echo $skill;?></span></li>
                     <?php }?>
                     <?php 
                         // foreach($softSkills as  $skill) {
@@ -132,10 +141,38 @@
             <div class="projects_section">
                 <h3 class="my_projects_heading"><?php echo $myProjectsHeading ?> </h3>
                 <ol class="my_projects_list">
-                   <?php for ($i = 0; $i < 3; $i++) {?>
+                   <?php for ($i = 0; $i < 3; $i++) {
+                        // switch($projects[$i]['cssStyle']) {
+                        //     case 1:
+                        //         $class = "red";
+                        //         break;
+                        //     case 2:
+                        //         $class = "green";
+                        //         break;
+                        //     case 3:
+                        //         $class = "red";    
+                        //         break;    
+                        //     default:
+                        //         $class = "blue";
+                        //         break;
+                        // }  
+
+                        $class = "blue";
+                        if ($projects[$i]['cssStyle'] == 1 && $projects[$i]['name'] == 'Facebook') {
+                            $class = "red"; 
+                        }
+
+                        if ($projects[$i]['cssStyle'] == 2 || $projects[$i]['name'] == 'Google') {
+                            $class = "green"; 
+                        }
+
+                        // if ($projects[$i]['cssStyle'] == 3) {
+                        //     $class = "red"; 
+                        // }
+                    ?>
                     <li class="my_progects_item"> 
                         <span class="my_projects_text"> 
-                            <a href="<?php  echo $projects[$i]['url']?>" class="my_projects_link"><?php  echo $projects[$i]['name']?></a>
+                            <a href="<?php  echo $projects[$i]['url']?>" class="my_projects_link <?php echo $class;?>"><?php  echo $projects[$i]['name']?></a>
                             <span class="my_progects_brackets">[</span><?php  echo implode('; ', $projects[$i]['tools']);?> <span class="my_progects_brackets">]</span>
                         </span>
                     </li>   
