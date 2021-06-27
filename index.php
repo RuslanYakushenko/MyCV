@@ -32,11 +32,15 @@
         'tools' => ['JavaScript', "CSS 3", 'PHP'],
         'cssStyle' => 3
     ];
-    
-    // echo  '<pre>';
-    // var_dump($projects);
-    // echo '</pre>';
-    // die;
+
+    $morning = "Доброе утро.";
+    $day = "Добрый день.";
+    $evening = "Добрый вечер.";
+    $night = "Доброй ночи.";
+    $chasov = date("H");
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -57,7 +61,8 @@
     <div class="main_conteiner">
         <!-- sidebar section -->
         <aside class="sidebar_section"> 
-            <img src="http://localhost/cv/img/2021-04-19.jpeg" width="370" height= "250" alt="My photo">
+            <img src="./img/2021-04-19.jpeg" width="370" height= "250" alt="My photo">
+
             <!-- contacts section -->
 
             <div class="contacts_section">
@@ -124,15 +129,30 @@
                 <h1 class="about_me_name"><?php echo $myName ?></h1>
 
                 <p class="about_me_description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. 
-                My age
-                    <?php 
-                        $age = DateTime::createFromFormat('d/m/Y', '28/07/1998')
+
+            <?php
+
+            if($chasov >= 04) {$hello = $morning;}
+            if($chasov >= 10) {$hello = $day;}
+            if($chasov >= 16) {$hello = $evening;}
+            if($chasov >= 22 or $chasov < 04) {$hello = $night;}
+
+            echo "$hello";
+
+            ?>
+
+                Меня зовут Руслан, мне
+                    <?php
+                     $age = DateTime::createFromFormat('d/m/Y', '28/07/1998')
                         ->diff(new DateTime('now'))
                         ->y;
                         echo $age; 
-                    ?>.  
+                    ?> года. 
                     </p>
+
+
+
+                    
             </div>
 
             

@@ -3,7 +3,7 @@
     $films = [];
 
     $films[] = [
-        'image' => '<img src="./img/Captain_America_The_Winter_Soldier.jpg" alt="Первый Мститель">',
+        'image' => '<img src="./img/Captain_America_The_Winter_Soldier.jpg" width="200"  alt="Первый Мститель">',
         'name' => 'Первый мститель',
         'genre' => ['Боевик', 'Приключения', 'Фантастика'],
         'rating' => '9.3',
@@ -12,7 +12,7 @@
     ];
 
     $films[] = [
-        'image' => '<img src="./img/IronMan2.jpg" alt="Железный человек">',
+        'image' => '<img src="./img/IronMan2.jpg" width="200"  alt="Железный человек">',
         'name' => 'Железный человек',
         'genre' => ['Боевик', 'Приключения', 'Фантастика'],
         'rating' => '7.9',
@@ -20,7 +20,7 @@
     ];
 
     $films[] = [
-        'image' => '<img src="http://localhost/cv/Джентльмены" alt="Железный человек">',
+        'image' => '<img src="./img/Джентльмены.jpg" width="200"  alt="Джентльмены">',
         'name' => 'Джентльмены',
         'genre' => ['Криминал', 'Комедия', 'Боевик'],
         'rating' => '8.5',
@@ -31,7 +31,7 @@
     $books = [];
 
     $books[] = [
-        'image'=> '<img src="http://localhost/cv/zhestkie-prodazhi-den-kennedi" alt="Жесткие продажи">',
+        'image'=> '<img src="./img/zhestkie-prodazhi-den-kennedi.png" width="200" alt="Жесткие продажи">',
         'name' => 'Жесткие продажи',
         'genre' => 'Бизнес-книги',
         'description' => 'В этой книге известнейшего бизнес-тренера Дэна Кеннеди изложены самые важные методики продаж. Они были вынесены из личного опыта, подсмотрены у суперуспешных профессионалов и отточены до совершенства клиентами Дэна с шести- и семизначным доходом. Это не то, что должно работать. А то, что действительно работает.',
@@ -39,7 +39,7 @@
     ];
 
     $books[] = [
-        'image'=> '<img src="http://localhost/cv/bogatyy-papa-new" alt="Богатый папа, Бедный папа">',
+        'image'=> '<img src="./img/bogatyy-papa-new.jpg" width="200" alt="Богатый папа, Бедный папа">',
         'name' => 'Богатый папа, бедный папа',
         'genre' => 'Бизнес-книги',
         'description' => 'Книга "Богатый папа, бедный папа", написанная Робертом Кийосаки в соавторстве с Шэрон Лектер, предоставляет читателю знания о деньгах, которым определенно не научат в школе. Ее важнейший постулат: истинной ценностью являются активы, приносящие "пассивный" (т.е. не зависящий от работы) доход владельцу. Книга учит приобретать и накапливать доходные активы, чтобы обрести финансовую независимость.',
@@ -47,7 +47,7 @@
     ];
 
     $books[] = [
-        'image'=> '<img src="http://localhost/cv/Golodnie-igri--I-vspixnet-plamya--Soyka-peresmeshnitsa_200" alt="Голодные игры">',
+        'image'=> '<img src="./img/Golodnie-igri--I-vspixnet-plamya--Soyka-peresmeshnitsa_200.jpg" width="200" alt="Голодные игры">',
         'name' => 'Голодные игры',
         'genre' => 'Зарубежная фантастика',
         'description' => 'Главная героиня, Китнисс Эвердин становится добровольной участницей Голодных игр (жребий выпал её младшей сестре, но Китнисс, желая защитить её, вызывается на замену). Семья Китнисс проживает в бедном 12-м дистрикте, основной сырьевой базой которого является добыча угля[10]. Вместе со вторым участником из своего дистрикта — Питом Мелларком, Китнисс пытается не только выжить, но и привлечь зрителей, которые могут оказаться богатыми спонсорами.',
@@ -70,20 +70,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="hobbies_page/hobbies_page.css">
+    <link rel="stylesheet" href="css/hobbies_page.css">
 </head>
 <body>
 
     <!-- Main container -->
-    <div>
+    <div class="main_conteiner">
         <!-- Мои любимые фильмы -->
-        <div>
+        <div class="block_of_films">
            <ol>
+               <!-- Спросить у Саши где ставить класс -->
                 <?php
                 foreach ($films as $i) { ?>
                     <li>
                         <span>
-                        <?php echo $i ['image'], "<br>" ?><?php echo $i ['name'], "<br>" ?><?php echo implode('; ', $i ['genre']), "<br>" ?><?php echo $i ['rating'], "<br>" ?><?php echo $i ['description'] ?>
+                        <?php echo $i ['image'],  "<br>"  ?> 
+                        <?php echo $i ['name'], "<br>" ?>
+                        <?php echo implode('; ', $i ['genre']), "<br>" ?>
+                        <?php 
+                        foreach ($films ['rating'] as $i => $rating) {
+                            if ($i <= 4) {
+                                $class = "red";
+                            }
+                            if ($i > 4 || $i <= 8) {
+                                $class = "yellow";
+                            }
+                            if ($i > 8 || $i <= 10) {
+                                $class = "green";
+                            }
+                        }
+                        
+                        echo $i ['rating'] , "<br>" 
+                        ?>
+                        <?php echo $i ['description'] ?>
                         </span>
                     </li>
                 <?php } ?>       
@@ -91,13 +110,16 @@
         </div>
 
         <!-- Мои любиме книги -->
-        <div>
+        <div class="block_of_books">
             <ol>
                 <?php
                 foreach ($books as $book) { ?>
                     <li>
                         <span>
-                        <?php  echo $book ['image'], "<br>" ?><?php echo $book ['name'], "<br>" ?><?php echo $book ['genre'], "<br>" ?><?php echo $book ['description'] ?>
+                        <?php echo $book ['image'], "<br>" ?>
+                        <?php echo $book ['name'], "<br>" ?>
+                        <?php echo $book ['genre'], "<br>" ?>
+                        <?php echo $book ['description'] ?>
                         </span>
                     </li>
                 <?php } ?>
@@ -121,19 +143,19 @@
             //     $i++;
             // } while ($i < 2);
 
-            $i = 1;
+            //$i = 1;
             
-            while ($i < 10) {
-                // echo "WHILE " . $i . PHP_EOL;
+            // while ($i < 10) {
+            //     // echo "WHILE " . $i . PHP_EOL;
 
-                if ($i % 2 == 0) {
-                    echo $i . ' - EVEN' . PHP_EOL;
-                } else {
-                    echo $i . ' - ODD' . PHP_EOL; 
-                }
+            //     if ($i % 2 == 0) {
+            //         echo $i . ' - EVEN' . PHP_EOL;
+            //     } else {
+            //         echo $i . ' - ODD' . PHP_EOL; 
+            //     }
 
-                $i++;
-            }
+            //     $i++;
+            // }
 
 
 

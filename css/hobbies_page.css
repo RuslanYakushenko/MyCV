@@ -16,3 +16,38 @@ body {
         margin: 40px auto;
         
     }
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+        .blue {
+            color: blue;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+    /* lock_of_films */
+    
+        .block_of_films {
+            background-color: #ececec;
+            width: 600px;
+            padding: 40px 0;
+        }
+
+
+    /* block_of_books */
+
+        .block_of_books {
+            background-color: #ececec;
+            width: 600px;
+            padding: 40px 0;
+        }
+
+
+
+            
