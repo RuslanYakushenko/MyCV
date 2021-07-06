@@ -3,7 +3,7 @@
     $films = [];
 
     $films[] = [
-        'image' => '<img src="./img/Captain_America_The_Winter_Soldier.jpg" width="200"  alt="Первый Мститель">',
+        'image' => './img/Captain_America_The_Winter_Soldier.jpg',
         'name' => 'Первый мститель',
         'genre' => ['Боевик', 'Приключения', 'Фантастика'],
         'rating' => '9.3',
@@ -12,7 +12,7 @@
     ];
 
     $films[] = [
-        'image' => '<img src="./img/IronMan2.jpg" width="200"  alt="Железный человек">',
+        'image' => './img/IronMan2.jpg',
         'name' => 'Железный человек',
         'genre' => ['Боевик', 'Приключения', 'Фантастика'],
         'rating' => '7.9',
@@ -20,7 +20,7 @@
     ];
 
     $films[] = [
-        'image' => '<img src="./img/Джентльмены.jpg" width="200"  alt="Джентльмены">',
+        'image' => './img/Джентльмены.jpg',
         'name' => 'Джентльмены',
         'genre' => ['Криминал', 'Комедия', 'Боевик'],
         'rating' => '8.5',
@@ -31,28 +31,54 @@
     $books = [];
 
     $books[] = [
-        'image'=> '<img src="./img/zhestkie-prodazhi-den-kennedi.png" width="200" alt="Жесткие продажи">',
+        'image' => './img/zhestkie-prodazhi-den-kennedi.png',
         'name' => 'Жесткие продажи',
-        'genre' => 'Бизнес-книги',
+        'genre' => ['Бизнес-книги'],
         'description' => 'В этой книге известнейшего бизнес-тренера Дэна Кеннеди изложены самые важные методики продаж. Они были вынесены из личного опыта, подсмотрены у суперуспешных профессионалов и отточены до совершенства клиентами Дэна с шести- и семизначным доходом. Это не то, что должно работать. А то, что действительно работает.',
 
     ];
 
     $books[] = [
-        'image'=> '<img src="./img/bogatyy-papa-new.jpg" width="200" alt="Богатый папа, Бедный папа">',
+        'image' => './img/bogatyy-papa-new.jpg',
         'name' => 'Богатый папа, бедный папа',
-        'genre' => 'Бизнес-книги',
+        'genre' => ['Бизнес-книги'],
         'description' => 'Книга "Богатый папа, бедный папа", написанная Робертом Кийосаки в соавторстве с Шэрон Лектер, предоставляет читателю знания о деньгах, которым определенно не научат в школе. Ее важнейший постулат: истинной ценностью являются активы, приносящие "пассивный" (т.е. не зависящий от работы) доход владельцу. Книга учит приобретать и накапливать доходные активы, чтобы обрести финансовую независимость.',
 
     ];
 
     $books[] = [
-        'image'=> '<img src="./img/Golodnie-igri--I-vspixnet-plamya--Soyka-peresmeshnitsa_200.jpg" width="200" alt="Голодные игры">',
+        'image' => './img/Golodnie-igri--I-vspixnet-plamya--Soyka-peresmeshnitsa_200.jpg',
         'name' => 'Голодные игры',
-        'genre' => 'Зарубежная фантастика',
+        'genre' => ['Зарубежная фантастика'],
         'description' => 'Главная героиня, Китнисс Эвердин становится добровольной участницей Голодных игр (жребий выпал её младшей сестре, но Китнисс, желая защитить её, вызывается на замену). Семья Китнисс проживает в бедном 12-м дистрикте, основной сырьевой базой которого является добыча угля[10]. Вместе со вторым участником из своего дистрикта — Питом Мелларком, Китнисс пытается не только выжить, но и привлечь зрителей, которые могут оказаться богатыми спонсорами.',
 
     ];
+
+    $series = [];
+
+    $series[] = [
+        'image' => './img/9f5740a92_200x300.jpg',
+        'name' => 'Острые Козырьки',
+        'genre' => ['Драма', 'Криминал'],
+        'rating' => '9.3',
+        'description' => ' Криминальная британская сага о становлении в Бирмингеме 20-х годов одной из опаснейших преступных группировок города «Острые козырьки». В основе гангстерской драмы лежит реальная история жестокой и влиятельной банды послевоенного времени. ',
+    ];
+
+    // $series[] = [
+    //     'image'=> './img/',
+    //     'name' =>
+    //     'genre' =>
+    //     'rating' =>
+    //     'description' =>
+    // ];
+
+    // $series[] = [
+    //     'image'=> './img/',
+    //     'name' =>
+    //     'genre' =>
+    //     'rating' =>
+    //     'description' =>
+    // ];
 
 ?>
 
@@ -82,29 +108,48 @@
                <!-- Спросить у Саши где ставить класс -->
                 <?php
                 foreach ($films as $i) { ?>
-                    <li>
-                        <span>
-                        <?php echo $i ['image'],  "<br>"  ?> 
-                        <?php echo $i ['name'], "<br>" ?>
-                        <?php echo implode('; ', $i ['genre']), "<br>" ?>
-                        <?php 
-                        foreach ($films ['rating'] as $i => $rating) {
-                            if ($i <= 4) {
+                                        
+                        <img src ="<?php echo $i ['image'] ?>" width="200" alt="">
+                        <h3 class="name_films">
+                            <?php echo $i ['name'] ?>
+                        </h3>
+                        <div>
+                            <?php foreach($i["genre"] as $filmsGenre) {?>
+                            <a href=""><?php echo $filmsGenre?></a>
+                            <?php } ?>
+                        </div>
+                        
+                        
+                        <?php
+
+                        // foreach ($i["genre"] as )
+                        //  echo implode('; ', $i ['genre']), "<br>"
+                        ?>
+                        <?php
+                    
+                            if ($i['rating'] <= 4) {
                                 $class = "red";
                             }
-                            if ($i > 4 || $i <= 8) {
+                            elseif ( $i['rating'] <= 8) {
                                 $class = "yellow";
                             }
-                            if ($i > 8 || $i <= 10) {
+                            else 
                                 $class = "green";
-                            }
-                        }
+                            
                         
-                        echo $i ['rating'] , "<br>" 
                         ?>
-                        <?php echo $i ['description'] ?>
+                        <span class="<?php echo $class ?>" >
+                            <?php echo $i['rating'] , "<br>" ?>
+                        
                         </span>
-                    </li>
+                        <p>
+                            <?php 
+                            
+                            echo mb_substr($i ['description'], 0, 150). "..." 
+                            ?>
+                        </p>
+                        </span>
+                    
                 <?php } ?>       
            </ol>
         </div>
@@ -114,62 +159,43 @@
             <ol>
                 <?php
                 foreach ($books as $book) { ?>
-                    <li>
+                    <div>
                         <span>
-                        <?php echo $book ['image'], "<br>" ?>
-                        <?php echo $book ['name'], "<br>" ?>
-                        <?php echo $book ['genre'], "<br>" ?>
-                        <?php echo $book ['description'] ?>
+                            <img src ="<?php echo $book ['image'] ?>" width="200" alt="">
+
+                        <h3><?php echo $book ['name'], "<br>" ?></h3>
+                        <div>
+                            <?php foreach($book['genre'] as $bookGenre) {?>
+                                <a href=""><?php echo $bookGenre?></a>
+                            <?php } ?>
+                        </div>
+                        
+                        
+                        <?php echo ( mb_substr ($book['description'], 0, 150 )). "..."; ?>
                         </span>
-                    </li>
+                    </div>
                 <?php } ?>
             </ol>
+
         </div>
-                    <pre>
-        <?php
-            // $loopIsWorhing = true;
-            // while ($loopIsWorhing) {
-            //     echo "Loop is working" . PHP_EOL;
 
-            //     $number = rand(1, 20);
-            //     if ($number == 10) {
-            //         $loopIsWorhing = false;
-            //     }                    
-            // }
 
-            // $i = 5;
-            // do {
-            //     echo "DO WHILE : " . $i . PHP_EOL;
-            //     $i++;
-            // } while ($i < 2);
-
-            //$i = 1;
+        <div class="block_of_series">
+            <?php 
+            foreach ($series as $i) {?>
             
-            // while ($i < 10) {
-            //     // echo "WHILE " . $i . PHP_EOL;
+            <img src="<?php echo $i['image']?>" width="200"  alt="">
+            <h3><div><?php echo $i['name'] ?></div></h3>
 
-            //     if ($i % 2 == 0) {
-            //         echo $i . ' - EVEN' . PHP_EOL;
-            //     } else {
-            //         echo $i . ' - ODD' . PHP_EOL; 
-            //     }
-
-            //     $i++;
-            // }
-
-
-
+            <?php foreach($i['genre'] as $seriesGenre) {?>
+                 <a href=""><?php echo $seriesGenre?> </a>
+                <?php } ?>
             
+            <div><?php echo(mb_substr($i['description'], 0 , 150)). "..."?></div>
 
-
-
-            // for ($i=1; $i < 5; $i++) {
-                
-            // }
-
-        ?>            
-</pre>
-    </div>
+            <?php } ?>
+        </div>
+    
 
     
         

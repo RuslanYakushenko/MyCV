@@ -31,18 +31,29 @@ body {
             color: yellow;
         }
 
-    /* lock_of_films */
+    /* Block_of_films */
     
         .block_of_films {
+            background-color: #ececec;
+            width: 600px;
+            padding: 40px 0 0 40px;
+        }
+
+            
+
+
+    /* block_of_books */
+
+        .block_of_books {
             background-color: #ececec;
             width: 600px;
             padding: 40px 0;
         }
 
 
-    /* block_of_books */
+    /* block_of_series */
 
-        .block_of_books {
+        .block_of_series {
             background-color: #ececec;
             width: 600px;
             padding: 40px 0;
