@@ -1,6 +1,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #F7F7F7;
+    background-color: rgb(207, 207, 207);
+    
 
 
 
@@ -8,57 +9,105 @@ body {
 
 }
 
-    .main_conteiner {
-        display: flex;
-        flex-direction: row;
+.main_conteiner{
+    display: block;
         width: 1200px;
-        background-color: #Ffff;
+        background-color: #1a293b;
+        box-shadow: inset 8px 8px 10px rgba(22, 21, 20, 0.5), 10px 10px 12px rgb(99, 94, 94);
         margin: 40px auto;
         
+}
+
+
+    .index_php a{
+        display: inline-block;
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+        user-select: none;
+        padding: .5em 2em;
+        outline: none;
+        border: 2px solid;
+        border-radius: 1px;
+        transition: 0.2s;
     }
-        .red {
-            color: red;
-        }
 
-        .green {
-            color: green;
-        }
-        .blue {
-            color: blue;
-        }
-
-        .yellow {
-            color: yellow;
-        }
-
-    /* Block_of_films */
     
-        .block_of_films {
-            background-color: #ececec;
-            width: 600px;
-            padding: 40px 0 0 40px;
+
+    
+
+    .name_groop{
+        position: relative;
+        top: 20px;
+        left: 20px;
+        height: 30px;
+        margin: 0 0 60px 0;
+        color: rgb(233, 233, 233);
+        font-style: inherit;
+        
+    }
+
+
+        .image{
+            margin: 10px 30px 10px 20px;
+            width: 200px;
+            background-color: rgb(189, 189, 189);
+            box-shadow: inset 5px 5px 8px rgba(154, 147, 140, 0.5), 3px 3px 8px rgb(189, 189, 189);
+
+        }
+        
+        .content_section{
+            position: relative;
+            top: -300px;
+            left: 300px;
+            width: 450px;
+            color: rgb(189, 189, 189);
+            margin-bottom: -145px;
+            border-top:1px solid #9EC1D4;
+            border-bottom: dotted 1px #9EC1D4;
+            padding-left:10px;
+            
         }
 
+            .genre_style a {
+                color: rgb(189, 189, 189);
+            }
+
+            .genre_style{
+                margin-bottom: 10px;
+            }
             
 
 
-    /* block_of_books */
 
-        .block_of_books {
-            background-color: #ececec;
-            width: 600px;
-            padding: 40px 0;
-        }
-
-
-    /* block_of_series */
-
-        .block_of_series {
-            background-color: #ececec;
-            width: 600px;
-            padding: 40px 0;
-        }
+            .hr-double {
+                margin: 0 15px 80px 15px;
+                padding: 0;
+                height: 1px;
+                border: none;
+                border-top: 1px solid rgb(189, 189, 189);
+                border-bottom: 1px solid rgb(189, 189, 189);
+            }
 
 
 
-            
+
+
+
+
+
+                .red {
+                    color: red;
+                }
+
+                .green {
+                    color: green;
+                }
+                .blue {
+                    color: blue;
+                }
+
+                .yellow {
+                    color: yellow;
+                }
+

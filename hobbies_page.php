@@ -97,90 +97,99 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/hobbies_page.css">
+
+    
 </head>
 <body>
-
+        <h2 class="index_php">
+            <a href="index.php"> < Назад</a>
+        </h2>
     <!-- Main container -->
     <div class="main_conteiner">
+
         <!-- Мои любимые фильмы -->
-        <div class="block_of_films">
-           <ol>
-               <!-- Спросить у Саши где ставить класс -->
+        
+           
+                <h2 class="name_groop">Любимые фильмы</h2>
                 <?php
                 foreach ($films as $i) { ?>
                                         
-                        <img src ="<?php echo $i ['image'] ?>" width="200" alt="">
-                        <h3 class="name_films">
-                            <?php echo $i ['name'] ?>
-                        </h3>
-                        <div>
-                            <?php foreach($i["genre"] as $filmsGenre) {?>
-                            <a href=""><?php echo $filmsGenre?></a>
-                            <?php } ?>
-                        </div>
-                        
-                        
-                        <?php
+                        <div class="image"><img src ="<?php echo $i ['image'] ?>" width="200" alt=""></div>
+                        <div class="content_section">
+                            <h2>
+                                <?php echo $i ['name'] ?>
+                            </h2>
+                            <div class="genre_style">
+                                <?php foreach($i["genre"] as $filmsGenre) {?>
+                                <a href=""><?php echo $filmsGenre?></a>
+                                <?php } ?>
+                            </div>
+                            
+                            
+                            <?php
 
-                        // foreach ($i["genre"] as )
-                        //  echo implode('; ', $i ['genre']), "<br>"
-                        ?>
-                        <?php
-                    
-                            if ($i['rating'] <= 4) {
-                                $class = "red";
-                            }
-                            elseif ( $i['rating'] <= 8) {
-                                $class = "yellow";
-                            }
-                            else 
-                                $class = "green";
-                            
-                        
-                        ?>
-                        <span class="<?php echo $class ?>" >
-                            <?php echo $i['rating'] , "<br>" ?>
-                        
-                        </span>
-                        <p>
-                            <?php 
-                            
-                            echo mb_substr($i ['description'], 0, 150). "..." 
+                            // foreach ($i["genre"] as )
+                            //  echo implode('; ', $i ['genre']), "<br>"
                             ?>
-                        </p>
-                        </span>
+                            <?php
+                        
+                                if ($i['rating'] <= 4) {
+                                    $class = "red";
+                                }
+                                elseif ( $i['rating'] <= 8) {
+                                    $class = "yellow";
+                                }
+                                else 
+                                    $class = "green";
+                                
+                            
+                            ?>
+                            <span class="<?php echo $class ?>">
+                                <?php echo $i['rating'] , "<br>" ?>
+                            
+                            </span>
+                            <p>
+                                <?php 
+                                
+                                echo mb_substr($i ['description'], 0, 250). "..." 
+                                ?>
+                            </p>
+                            </span>
+                        </div>
                     
                 <?php } ?>       
-           </ol>
-        </div>
+           
+                <hr class="hr-double">
 
         <!-- Мои любиме книги -->
-        <div class="block_of_books">
-            <ol>
+        <div>
+            
                 <?php
                 foreach ($books as $book) { ?>
                     <div>
-                        <span>
+                        
                             <img src ="<?php echo $book ['image'] ?>" width="200" alt="">
 
-                        <h3><?php echo $book ['name'], "<br>" ?></h3>
-                        <div>
-                            <?php foreach($book['genre'] as $bookGenre) {?>
-                                <a href=""><?php echo $bookGenre?></a>
-                            <?php } ?>
+                        <div class="">
+                                <h3><?php echo $book ['name'], "<br>" ?></h3>
+                            <div>
+                                <?php foreach($book['genre'] as $bookGenre) {?>
+                                    <a href=""><?php echo $bookGenre?></a>
+                                <?php } ?>
+                            </div>
+                            
+                            
+                            <?php echo ( mb_substr ($book['description'], 0, 250 )). "..."; ?>
                         </div>
                         
-                        
-                        <?php echo ( mb_substr ($book['description'], 0, 150 )). "..."; ?>
-                        </span>
                     </div>
                 <?php } ?>
-            </ol>
+            
 
         </div>
 
 
-        <div class="block_of_series">
+        <div>
             <?php 
             foreach ($series as $i) {?>
             
@@ -191,7 +200,7 @@
                  <a href=""><?php echo $seriesGenre?> </a>
                 <?php } ?>
             
-            <div><?php echo(mb_substr($i['description'], 0 , 150)). "..."?></div>
+            <div><?php echo(mb_substr($i['description'], 0 , 250)). "..."?></div>
 
             <?php } ?>
         </div>
