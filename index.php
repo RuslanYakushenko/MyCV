@@ -1,4 +1,6 @@
 <?php
+    require_once './functions.php';
+
     $myName = "Руслан Якушенко";
     $date = date("M Y");
     $myProjectsHeading = "Projects";
@@ -32,16 +34,6 @@
         'tools' => ['JavaScript', "CSS 3", 'PHP'],
         'cssStyle' => 3
     ];
-    
-
-    $morning = "Доброе утро.";
-    $day = "Добрый день.";
-    $evening = "Добрый вечер.";
-    $night = "Доброй ночи.";
-    $chasov = date("H");
-
-
-
 
 ?>
 <!DOCTYPE html>
@@ -117,6 +109,7 @@
             <!-- Hobbies page -->
             <div>
             <a href="hobbies_page.php">hobbies_page.php</a>
+                <a href="contact.php">Contacts</a>
             </div>
 
             
@@ -132,14 +125,7 @@
                 <p class="about_me_description">
 
             <?php
-
-            if($chasov >= 04) {$hello = $morning;}
-            if($chasov >= 10) {$hello = $day;}
-            if($chasov >= 16) {$hello = $evening;}
-            if($chasov >= 22 or $chasov < 04) {$hello = $night;}
-
-            echo "$hello";
-
+                echo getWelcomeMessage(0, 'Good Evning!!!!');
             ?>
 
                 Меня зовут Руслан, мне
