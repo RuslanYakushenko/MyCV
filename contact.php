@@ -9,6 +9,17 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/contact.css">
+
+
     <body>
 <!--    после отправки формы поблогодарить пользователя и -->
 <!--    вывести сообщение "Спасибо имя пользователя. Мы с вами свяжемся в блежайшее время."-->
@@ -27,9 +38,10 @@
             <input  type="submit" value="Отправить">
         </form> -->
 
-        
-
-        <form action="./contact.php" method="post">
+    
+        <h1 class="heading">Заявка</h1>
+        <form class="form_user" action="./contact.php" method="post">
+            
             <p>
                Ваше имя: <input name="user_name" type="text" pattern="^[А-Яа-яЁё\s]+$" title="Формат: A-z, А-я" required placeholder="Обязательное поле" /> 
             </p>
@@ -45,17 +57,15 @@
             <p>
                 <input type="submit" value="Отправить" >
             </p>
-            
+
+
+        </form>
+       
             <?php
                 if($name >= 1) {
                     echo "Спасибо, " , $name , ", мы с вами свяжемся в ближайшее время." ;
                 }
 
             ?>
-
-
-        </form>
-       
-
     </body>
 </html>
