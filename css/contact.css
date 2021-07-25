@@ -1,0 +1,29 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(207, 207, 207);
+    
+
+
+
+
+
+}
+
+    .heading {
+        font-style:normal;
+        
+    }
+
+
+    .form_user {
+        display: flex;
+        width: 1200px;
+        margin: 100px auto auto 100px;
+        background-color: #f0f2f5;
+        box-shadow: inset 3px 3px 5px rgba(22, 21, 20, 0.5), 5px 5px 8px rgb(99, 94, 94);
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        
+    }
+
