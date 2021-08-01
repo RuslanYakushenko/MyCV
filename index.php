@@ -1,5 +1,6 @@
 <?php
     require_once './functions.php';
+    require_once './database.php';
 
     $myName = "Руслан Якушенко";
     $date = date("M Y");
