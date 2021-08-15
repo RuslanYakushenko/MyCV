@@ -1,6 +1,5 @@
 <?php
 
-
 function getAllFilms()
 {
     try {
@@ -80,5 +79,38 @@ function getAllBooks()
 
 }
 
+function getUser($login)
+{
+    $pdo = getConnection();
+
+    $sql = "SELECT * FROM users WHERE login = :login";
+
+    $statemant = $pdo->prepare($sql);
+    $statemant->bindValue(':login', $login);
+
+    $statemant->execute();
+    $statemant->setFetchMode(PDO::FETCH_ASSOC);
+
+    $result = $statemant->fetch();
+
+    return !empty($result) ? $result : null;
+
+}
+
+function getConnection()
+{
+    // $host = "localhost";
+    // $pass = "";
+    // $user = "root";
+    // $dbName = "test";
+
+    $host = "percona_db";
+    $pass = "root";
+    $user = "root";
+    $dbName = "my_cv";
+
+    $pdo = new PDO('mysql:host=' . $host .';dbname='. $dbName .';charset=utf8', $user, $pass);
+    return $pdo;
+}
 ?>
 
