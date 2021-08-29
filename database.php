@@ -99,18 +99,91 @@ function getUser($login)
 
 function getConnection()
 {
-    // $host = "localhost";
-    // $pass = "";
-    // $user = "root";
-    // $dbName = "test";
-
-    $host = "percona_db";
-    $pass = "root";
+    $host = "localhost";
+    $pass = "";
     $user = "root";
-    $dbName = "my_cv";
+    $dbName = "test";
+
+    // $host = "percona_db";
+    // $pass = "root";
+    // $user = "root";
+    // $dbName = "my_cv";
 
     $pdo = new PDO('mysql:host=' . $host .';dbname='. $dbName .';charset=utf8', $user, $pass);
     return $pdo;
 }
+
+function AddNewFilms()
+{
+    if (isset($_POST["name"]) && isset($_POST["rating"]) && isset($_POST["descripion"]) && isset($_POST["image_url"]) && isset($_POST["year"]) && isset($_POST["budget"])) {
+            
+        $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root','');
+
+        if($pdo->connect_error){
+            die("Ошибка: " . $pdo->connect_error);
+        }
+        
+        $name = $pdo->real_escape_string($_POST['name']);
+        $rating = $pdo->real_escape_string($_POST['rating']);
+        $descripion = $pdo->real_escape_string($_POST['descripion']);
+        $image_url = $pdo->real_escape_string($_POST['image_url']);
+        $year = $pdo->real_escape_string($_POST['year']);
+        $budget = $pdo->real_escape_string($_POST['budget']);
+
+        $sql = "INSERT INTO films ('name','rating','descripion','image_url','year','budget',) 
+                VALUES ('$name', $rating, $descripion, $image_url, $year, $budget)";
+        if($pdo->query($sql)){
+            echo "Данные успешно добавлены";
+        } else{
+            echo "Ошибка: " . $pdo->error;
+        }
+        $pdo->close();
+    }
+}
+
+
+function AddTablesFilms()
+{
+    try{
+        $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root','');
+        $sql = "SELECT f.id, f.name, f.rating, GROUP_CONCAT(g.genre) AS genre_name
+        FROM films AS `f`
+        INNER JOIN films_ganres AS `fg` ON f.id = fg.film_id
+        INNER JOIN genres AS `g` ON g.id = fg.genre_id       
+        GROUP BY f.id, f.name, f.rating, f.image_url";
+        
+        $statemant = $pdo->prepare($sql);
+
+        $statemant->execute();
+
+        $statemant->setFetchMode(PDO::FETCH_ASSOC);
+
+        $result = $statemant->fetchAll();
+
+        return $result;
+    }
+    catch (Exception $ex) {
+        var_dump($ex->getMessage());
+    }
+        
+}
+
+
+
+
+function DeleteFilms(){
+    $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root','');
+    $film = $_POST["id"];
+    $sql = "DELETE FROM films WHERE id = '$film'";
+
+}
 ?>
+
+
+
+
+
+
+
+
 

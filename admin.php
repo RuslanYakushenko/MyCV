@@ -22,12 +22,12 @@ if (!isset($_SESSION["id"]) && !empty($_POST)) {
 
 <?php if (!isset($_SESSION["id"])) {?>
 
-<form method="post" action="/admin.php">
+<form method="post" action="./admin.php">
     <label>Login</label>
     <input type="text" name="login"/>
     <label>Password</label>
-    <input type="password" name="password">
-    <input type="submit" value="Login"/>
+    <input type="password" name="password"/>
+    <input type="submit" value="login"/>
 </form>
 <?php } else {?>
     <?php echo "Welcome " . $_SESSION["user_name"]; ?>
@@ -35,7 +35,9 @@ if (!isset($_SESSION["id"]) && !empty($_POST)) {
     
     <!-- реализоват добавление новых фильмов, изминение фильма, удаление. -->
     <ul>
-        <li><a href="/films/add.php">Добавить фильм</a></li>
+        <li><a href="/cv/films/add.php">Добавить фильм</a></li>
+        <li><a href="/cv/films/editorfilms.php">Редактирование фильмов</a></li>
+        
     </ul>
 
 <?php }?>
