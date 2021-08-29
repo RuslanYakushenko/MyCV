@@ -5,15 +5,15 @@ function getAllFilms()
     try {
 
         //подключение к базе данных
-        $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root','');
+        $pdo = getConnection();
         
         ///текст запроса
         // $sql = "SELECT * FROM films LIMIT 3";
-        $sql = "SELECT f.name, f.rating, f.description, f.image_url, GROUP_CONCAT(g.genre) AS genre_name
+        $sql = "SELECT f.id, f.name, f.rating, f.description, f.image_url, GROUP_CONCAT(g.genre) AS genre_name
         FROM films AS `f`
         INNER JOIN films_ganres AS `fg` ON f.id = fg.film_id
         INNER JOIN genres AS `g` ON g.id = fg.genre_id       
-        GROUP BY f.name, f.rating, f.description, f.image_url";
+        GROUP BY f.id, f.name, f.rating, f.description, f.image_url";
         
     
         ///формируем объект запроса
@@ -142,32 +142,80 @@ function AddNewFilms()
 }
 
 
-function AddTablesFilms()
+// function AddTablesFilms()
+// {
+//     try{
+//         $pdo = getConnection();
+//         $sql = "SELECT f.id, f.name, f.rating, GROUP_CONCAT(g.genre) AS genre_name
+//         FROM films AS `f`
+//         INNER JOIN film_ganres AS `fg` ON f.id = fg.film_id
+//         INNER JOIN genres AS `g` ON g.id = fg.genre_id       
+//         GROUP BY f.id, f.name, f.rating, f.image_url";
+        
+//         $statemant = $pdo->prepare($sql);
+
+//         $statemant->execute();
+
+//         $statemant->setFetchMode(PDO::FETCH_ASSOC);
+
+//         $result = $statemant->fetchAll();
+
+//         return $result;
+//     }
+//     catch (Exception $ex) {
+//         var_dump($ex->getMessage());
+//     }
+        
+// }
+
+
+function getFilmById($filmId)
 {
-    try{
-        $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root','');
-        $sql = "SELECT f.id, f.name, f.rating, GROUP_CONCAT(g.genre) AS genre_name
-        FROM films AS `f`
-        INNER JOIN films_ganres AS `fg` ON f.id = fg.film_id
-        INNER JOIN genres AS `g` ON g.id = fg.genre_id       
-        GROUP BY f.id, f.name, f.rating, f.image_url";
-        
-        $statemant = $pdo->prepare($sql);
+    $pdo = getConnection();
 
-        $statemant->execute();
+    $sql = "SELECT * FROM films WHERE id = :id";
+    $pdoStatement = $pdo->prepare($sql);
 
-        $statemant->setFetchMode(PDO::FETCH_ASSOC);
+    $pdoStatement->bindParam(":id", $filmId);
+    $pdoStatement->execute();
 
-        $result = $statemant->fetchAll();
+    $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
 
-        return $result;
-    }
-    catch (Exception $ex) {
-        var_dump($ex->getMessage());
-    }
-        
+    $result = $pdoStatement->fetch();
+
+    return is_array($result) ? $result : null;
 }
 
+
+/**
+ * $data = ['name_column' => value]
+ * */
+
+function updateFilm($filmId, array $data)
+{
+    $params = [];
+    $updateColumns = [];
+
+    foreach ($data as $nameColumn => $value) {
+        $key = ":" . $nameColumn;
+        $updateColumns[] = "$nameColumn = $key";
+        $params[$key] = $value;
+    }
+
+    $sql = "UPDATE films SET " . implode(", ", $updateColumns) . " WHERE id = :id";
+    
+    $pdo = getConnection();
+    $pdoStatement = $pdo->prepare($sql);
+
+    $pdoStatement->bindParam(":id", $filmId);
+    foreach ($params as $key => $value) {
+        $pdoStatement->bindValue($key, $value);
+    }
+
+    $pdoStatement->execute();
+
+    return true;
+}
 
 
 
