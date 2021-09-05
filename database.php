@@ -53,11 +53,11 @@ function getAllBooks()
         $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root','');
 
 
-        $sql = "SELECT b.image, b.name, b.description, GROUP_CONCAT(g.genre) AS genre_name
+        $sql = "SELECT b.id, b.image, b.name, b.description, GROUP_CONCAT(g.genre) AS genre_name
         FROM books AS `b`
         INNER JOIN books_genres AS `bg` ON b.id = bg.book_id
         INNER JOIN genres AS `g` ON g.id = bg.genre_id       
-        GROUP BY b.image, b.name, b.description";
+        GROUP BY b.id, b.image, b.name, b.description";
 
         $statemant = $pdo->prepare($sql);
     

@@ -58,7 +58,7 @@ require "../database.php";
     <tr>
         <th>Фильм ID</th>
         <th>Название Фильма</th>
-        <th>Руйтинг</th>
+        <th>Рейтинг</th>
         <th>Actions</th>    
     </tr>
     <?php foreach ($tablefilms as $film) {?>

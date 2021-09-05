@@ -37,7 +37,8 @@ if (!isset($_SESSION["id"]) && !empty($_POST)) {
     <ul>
         <li><a href="/cv/films/add.php">Добавить фильм</a></li>
         <li><a href="/cv/films/editorfilms.php">Редактирование фильмов</a></li>
-        
+        <li><a href="/cv/books/addBooks.php">Добавить Книгу</a></li>
+        <li><a href="/cv/books/editorbooks.php">Редактирование книг</a></li>
     </ul>
 
 <?php }?>
