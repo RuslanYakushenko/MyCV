@@ -2,24 +2,29 @@
 
 require_once "../database.php";
 
-function addNewBooks() 
+function addNewBooks(array $bookOptions)
 {
-    if (isset($_POST["image"]) && isset($_POST["name"]) && isset($_POST["description"])) {
+    if (isset($bookOptions["image"]) && isset($bookOptions["name"]) && isset($bookOptions["description"])) {
 
-    $pdo = getConnection();
+        $pdo = getConnection();
 
-    $image = ($_POST["image"]);
-    $name = ($_POST["name"]);
-    $description = ($_POST["description"]);
+        $image = ($bookOptions["image"]);
+        $name = ($bookOptions["name"]);
+        $description = ($bookOptions["description"]);
 
-    $sql = "INSERT INTO books (image, name, description) 
-                VALUES ('$image', '$name', '$description')";
+        $sql = "INSERT INTO books (image, name, description) 
+                    VALUES ('$image', '$name', '$description')";
+
+        
+
         if($pdo->query($sql)){
             echo "Данные успешно добавлены";
         } else{
             echo "Ошибка: " . $pdo->error;
         };
 
+    } else {
+        throw new RuntimeException("image, name, description are required");
     }
 }
 

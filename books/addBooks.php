@@ -6,8 +6,6 @@ ini_set('display_startup_errors', 1);
 
 session_start();
 
-
-
 if (!isset($_SESSION["id"])) {
     header("Location: /cv/admin.php");
 }
@@ -15,7 +13,9 @@ if (!isset($_SESSION["id"])) {
 require_once "./functionsBooks.php";
 require_once "../database.php";
 
-$addNewBooks = addNewBooks();
+
+//$addNewBooks = addNewBooks($_POST);
+addNewBooks(['name' => 'New book', 'description' => 'test desc', 'image' => 'etst image']);
 
 
 
