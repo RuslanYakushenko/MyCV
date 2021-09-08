@@ -1,7 +1,13 @@
 <?php
-    require_once './functions.php';
-    require_once './database.php';
+    ini_set('error_reporting', E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
 
+    require_once "./functions.php";
+    require_once "./database.php";
+    // require_once "./skills/functionsSkills.php";
+
+    
     $myName = "Руслан Якушенко";
     $date = date("M Y");
     $myProjectsHeading = "Projects";
@@ -12,6 +18,7 @@
     $teckSkills[] = "PHP";
     $teckSkills[] = "Wordpress";
     $teckSkills[] = "Vue";
+
 
     $projects = [];
 

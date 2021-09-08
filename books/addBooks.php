@@ -12,10 +12,15 @@ if (!isset($_SESSION["id"])) {
 
 require_once "./functionsBooks.php";
 require_once "../database.php";
+require_once "../projects/functionsProjects.php";
 
+$addNewProjects = addNewProjects(['name' => 'test' ,'url' => 'test', 'tools' => 'test', 'cssStyle' => '1']);
+$projectName = 'test';
+$project = getProjectByName($projectName);
+// var_dump($project);
 
-//$addNewBooks = addNewBooks($_POST);
-addNewBooks(['name' => 'New book', 'description' => 'test desc', 'image' => 'etst image']);
+$addNewBooks = addNewBooks($_POST);
+// addNewBooks(['name' => 'New book', 'description' => 'test desc', 'image' => 'etst image']);
 
 
 
@@ -46,6 +51,8 @@ addNewBooks(['name' => 'New book', 'description' => 'test desc', 'image' => 'ets
     <p>
         <input type="submit" value="Отправить" >
     </p>
+
+    
     
 </body>
 </html>

@@ -39,6 +39,9 @@ if (!isset($_SESSION["id"]) && !empty($_POST)) {
         <li><a href="/cv/films/editorfilms.php">Редактирование фильмов</a></li>
         <li><a href="/cv/books/addBooks.php">Добавить Книгу</a></li>
         <li><a href="/cv/books/editorbooks.php">Редактирование книг</a></li>
+        <li><a href="/cv/skills/addSkills.php">Добавить навык</a></li>
+        <li><a href="/cv/work_experience/addWorkExperience.php">Добавить опыт работы</a></li>
+        <li><a href="/cv/education/addNewEducation.php">Добавить образование</a></li>
     </ul>
 
 <?php }?>

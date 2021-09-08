@@ -13,15 +13,25 @@ function addNewBooks(array $bookOptions)
         $description = ($bookOptions["description"]);
 
         $sql = "INSERT INTO books (image, name, description) 
-                    VALUES ('$image', '$name', '$description')";
-
+                    VALUES (:image, :name, :description)";
         
+        $pdoStatement = $pdo->prepare($sql);
 
-        if($pdo->query($sql)){
-            echo "Данные успешно добавлены";
-        } else{
-            echo "Ошибка: " . $pdo->error;
-        };
+        $pdoStatement->bindParam(":image", $image);
+        $pdoStatement->bindParam(":name", $name);
+        $pdoStatement->bindParam(":description", $description);
+       
+        $pdoStatement->execute();
+
+
+
+
+
+        // if($pdo->query($sql)){
+        //     echo "Данные успешно добавлены";
+        // } else{
+        //     echo "Ошибка: " . $pdo->error;
+        // };
 
     } else {
         throw new RuntimeException("image, name, description are required");
