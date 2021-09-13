@@ -8,18 +8,20 @@ require_once "../database.php";
 
 function addNewSkills(array $skillsOptions)
 {
-    if (isset($skillsOptions["name"])) {
+    if (isset($skillsOptions["group_skills"]) && isset($skillsOptions["name_skills"])) {
 
         $pdo = getConnection();
 
-        $name = ($skillsOptions["name"]);
+        $group_skills = ($skillsOptions["group_skills"]);
+        $name_skills = ($skillsOptions["name_skills"]);
 
-        $sql = "INSERT INTO skills (name) 
-                    VALUES (:name)";
+        $sql = "INSERT INTO skills (name_skills, group_skills) 
+                    VALUES (:name_skills, :group_skills)";
 
         $pdoStatement = $pdo->prepare($sql);
 
-        $pdoStatement->bindParam(":name", $name);
+        $pdoStatement->bindParam(":group_skills", $group_skills);
+        $pdoStatement->bindParam(":name_skills", $name_skills);
 
         $pdoStatement->execute();
 
@@ -34,40 +36,26 @@ function addNewSkills(array $skillsOptions)
 
 }
 
-function showSkills()
-{
-    $pdo = getConnection();
-    // $sql = "SELECT (title_skills)
-    //         FROM skills"
-
-    $sql = "SELECT s.name
-        FROM skills AS `s`
-        INNER JOIN group_skills AS `gs` ON s.id = gs.id_skills
-        INNER JOIN genres AS `g` ON g.id = gs.id_genre";
-
-        $statemant = $pdo->prepare($sql);
-
-        $statemant->execute();
-
-        $statemant->setFetchMode(PDO::FETCH_ASSOC);
-
-        $result = $statemant->fetchAll();
-
-        return $result;
-        
-}
-
-function ShowTechSkills()
+function getSoftSkills()
 {
     $pdo = getConnection();
 
-    $sql = "SELECT s.name
-    FROM skills AS `s`
-    INNER JOIN group_skills AS `gs` ON s.id = gs.id_skills
-    INNER JOIN genres AS `g` ON g.id = gs.id_genre";
+    $sql = "SELECT name_skills
+    FROM skills WHERE group_skills= 'Soft Skills'";
+    $pdoStatement = $pdo->prepare($sql);
+    
+    $pdoStatement->execute();
+
+    $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
+
+    $result = $pdoStatement->fetchAll();
+
+    return is_array($result) ? $result : null;
+};
 
 
-}
+
+
 
 
 

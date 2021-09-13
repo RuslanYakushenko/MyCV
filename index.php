@@ -4,15 +4,15 @@
     ini_set('display_startup_errors', 1);
 
     require_once "./functions.php";
-    require_once "./database.php";
-    // require_once "./skills/functionsSkills.php";
+    // require_once "./database.php";
+    require_once "./skills/functionsSkills.php";
 
     
     $myName = "Руслан Якушенко";
     $date = date("M Y");
     $myProjectsHeading = "Projects";
 
-    $softSkills = ["Scrum", "Agile", "GTD", "Teanwork", "Management"];
+    $softSkills = getSoftSkills();
 
     $teckSkills = ['HTML5', "CSS3"];
     $teckSkills[] = "PHP";

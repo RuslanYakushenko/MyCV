@@ -14,11 +14,10 @@ require_once "./functionsSkills.php";
 require_once "../database.php";
 // Задать вопрос саше по установке аргумента в функции в этом файле
 $addNewSkills = addNewSkills($_POST);
+// $getSoftSkills = getSoftSkills();
+// var_dump($getSoftSkills);
 
-// $showSkills = showSkills();
-// var_dump($showSkills);
-$ShowTechSkills = ShowTechSkills();
-var_dump($ShowTechSkills);
+
 
 ?>
 
@@ -36,11 +35,11 @@ var_dump($ShowTechSkills);
     <h2>Добавление нового навыка</h2>
 
     <form action= "addSkills.php"  method="POST">
-    <!-- <p>
-        Группа: <input name="group_skills" type="text" required placeholder="Обязательное поле" /> 
-    </p> -->
     <p>
-        Название: <input name="name" type="text" required placeholder="Обязательное поле" /> 
+        Группа: <input name="group_skills" type="text" required placeholder="Обязательное поле" /> 
+    </p>
+    <p>
+        Название: <input name="name_skills" type="text" required placeholder="Обязательное поле" /> 
     </p>
     <p>
         <input type="submit" value="Отправить" >
