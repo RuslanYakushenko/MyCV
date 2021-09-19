@@ -13,11 +13,9 @@
     $myProjectsHeading = "Projects";
 
     $softSkills = getSoftSkills();
+    
 
-    $teckSkills = ['HTML5', "CSS3"];
-    $teckSkills[] = "PHP";
-    $teckSkills[] = "Wordpress";
-    $teckSkills[] = "Vue";
+    $teckSkills = getTechSkills();
 
 
     $projects = [];
@@ -84,7 +82,7 @@
                 <h3 class="sidebar_tittle">Tech Skills</h3>
                 <ul class="skills_list">
                     <?php  foreach ($teckSkills as $index => $skill) {?>
-                        <li class="skills_item"> <span class="skills_item_text"><b><?php echo $index + 1 . ".";?></b><?php echo $skill;?></span></li>
+                        <li class="skills_item"> <span class="skills_item_text"><b><?php echo $index + 1 . ".";?></b><?php echo $skill ['name_skills'];?></span></li>
                     <?php } ?>
                     <!-- <li class="skills_item"> <span class="skills_item_text" >HTML5</span></li>
                     <li class="skills_item"> <span class="skills_item_text" >CSS3</span></li>
@@ -97,20 +95,17 @@
             <div class="soft_skills_section">
                 <h3 class="sidebar_tittle">Soft Skills</h3>
                 <ul class="skills_list">
-                    <?php foreach ($softSkills as $index => $skill) {
-                        if ($index % 2 == 0) {
-                            $class = "red";
-                        } else {
-                            $class = "green";
-                        }
-                        ?>
-                        <li class="skills_item <?php echo $class;?>"> <span class="skills_item_text" ><?php echo $skill;?></span></li>
-                    <?php }?>
                     <?php 
-                        // foreach($softSkills as  $skill) {
-                        //     echo "<li class=\"skills_item\"> <span class=\"skills_item_text\" >"  . $skill . "</span></li>";
-                        // }
-                    ?>        
+                        foreach ($softSkills as $index => $skill) {
+                            if ($index % 2 == 0) {
+                                $class = "red";
+                            } else {
+                                $class = "green";
+                            }
+                        ?>
+                        <li class="skills_item <?php echo $class;?>"> <span class="skills_item_text" ><?php echo $skill ['name_skills'];?></span></li>
+                    <?php }?>
+                    
                 </ul>
             </div>
 

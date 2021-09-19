@@ -4,7 +4,9 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
-require_once "../database.php";
+// require_once $_SERVER['DOCUMENT_ROOT']. "/cv/database.php";
+// require_once "./database.php";
+include_once realpath(__DIR__ . "/../") . "/database.php";
 
 function addNewSkills(array $skillsOptions)
 {
@@ -42,6 +44,23 @@ function getSoftSkills()
 
     $sql = "SELECT name_skills
     FROM skills WHERE group_skills= 'Soft Skills'";
+    $pdoStatement = $pdo->prepare($sql);
+    
+    $pdoStatement->execute();
+
+    $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
+
+    $result = $pdoStatement->fetchAll();
+
+    return is_array($result) ? $result : null;
+};
+
+function getTechSkills()
+{
+    $pdo = getConnection();
+
+    $sql = "SELECT name_skills
+    FROM skills WHERE group_skills= 'Tech Skills'";
     $pdoStatement = $pdo->prepare($sql);
     
     $pdoStatement->execute();
