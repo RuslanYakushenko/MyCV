@@ -115,13 +115,13 @@ class Bus extends Car
     }
 }
 
-$bus = new Bus("WHITE", "GAZEL", "VAZ");
-echo $bus->getColor();
+// $bus = new Bus("WHITE", "GAZEL", "VAZ");
+// echo $bus->getColor();
 
-$bus2 = new Bus("BLACK", "GAZEL", "VAZ");
-echo $bus2->getColor();
+// $bus2 = new Bus("BLACK", "GAZEL", "VAZ");
+// echo $bus2->getColor();
 
-echo Bus::MAX_SPEED;
+// echo Bus::MAX_SPEED;
 
 
 //$car = new Car("BLUE", "X5", "BMW");
@@ -155,6 +155,54 @@ echo Bus::MAX_SPEED;
 //    $car->stop();
 //    $car->getSpeed();
 //}
+?>
+<?php
+class Films
+{
+    public $id;
+    public $name;
+    public $rating;
+    public $description;
+    public $image_url;
+    public $year;
+    public $budget;
 
+
+    public function __construct($id, $name, $rating, $description, $image_url, $year, $budget)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->rating = $rating;
+        $this->description = $description;
+        $this->image_url = $image_url;
+        $this->year = $year;
+        $this->budget = $budget;
+
+        // echo "Films:" . $id. "</br>" . $name. "</br>" . $rating. "</br>" . $description. "</br>" . $image_url. "</br>" . $year. "</br>" . $budget. "</br>";
+    }
+    // set = изменяем свойства объекта
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+    }
+
+    // get = Вывести свойства объекта
+    public function getRating()
+    {
+        return $this->rating;
+    }
+    
+	
+}
+
+$Films = new Films( "1","Железный человек","Рейтинг","Описание","Изображение","Год","Бюджет");
+
+echo $Films->getRating() . "<br/>";
+
+$Films->setRating("5");
+
+echo $Films->getRating() . "<br/>";
+?>
 
 
